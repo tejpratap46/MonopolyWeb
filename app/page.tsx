@@ -12,12 +12,15 @@ export default function Home() {
     const {profile} = useCurrentUser(auth);
 
     const handleSignIn = async () => {
+        debugger
         try {
             if (profile) {
+                debugger
                 router.push("/dashboard/admin");
                 return
             }
             await signInWithGoogle();
+            debugger
             router.push("/dashboard/admin");
         } catch (error) {
             console.log(error);
@@ -30,7 +33,6 @@ export default function Home() {
                 <h2 className="text-4xl">Sample Template</h2>
                 <p>Scroll Down</p>
                 <Button onClick={handleSignIn}
-                        disabled={isLoading}
                         className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
                     <svg className="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                          fill="currentColor" viewBox="0 0 18 19">
